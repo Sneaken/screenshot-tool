@@ -1,0 +1,11 @@
+appId: com.sneaken.app
+productName: screenshot-tool
+mac:
+  target:
+    target: dmg
+nsis:
+  oneClick: false
+  perMachine: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: false

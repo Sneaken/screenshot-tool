@@ -1,0 +1,55 @@
+{
+  "name": "screenshot-tool",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "chalk": "^5.0.1",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "enquirer": "^2.3.6",
+    "eslint": "^8.24.0",
+    "execa": "^6.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "minimist": "^1.2.6",
+    "prettier": "^2.7.1",
+    "semver": "^7.3.7"
+  },
+  "scripts": {
+    "release": "node scripts/release.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "commit": "git-cz",
+    "prepare": "husky install",
+    "build": "cd webview && yarn build:webview && cd ../electron && yarn build:dev"
+  },
+  "lint-staged": {
+    "!(electron/app/**/*).js": [
+      "prettier --write"
+    ],
+    "electron/**/*.ts": [
+      "prettierw --parser=typescript --write"
+    ],
+    "webview/**/*.ts?(x)": [
+      "eslint",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sneaken/screenshot-tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sneaken/screenshot-tool/issues"
+  },
+  "homepage": "https://github.com/Sneaken/screenshot-tool#readme"
+}
